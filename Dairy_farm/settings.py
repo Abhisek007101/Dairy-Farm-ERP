@@ -23,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('django-insecure-8(erv-k^jvle2j&rdb3&l2h!yzfgf%_mccaa81e^z==@gdeh$*')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
 
 ALLOWED_HOSTS = ["https://dairy-farm-erp.onrender.com"]
 

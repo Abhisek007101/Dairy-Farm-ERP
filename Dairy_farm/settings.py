@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('django-insecure-8(erv-k^jvle2j&rdb3&l2h!yzfgf%_mcca
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://dairy-farm-erp.onrender.com"]
 
 
 # Application definition

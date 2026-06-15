@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Milk Records</h1>
+
+<a href="{% url 'milk_create' %}">
+    Add Milk Record
+</a>
+
+<hr>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Animal</th>
+        <th>Date</th>
+        <th>Morning Milk</th>
+        <th>Evening Milk</th>
+        <th>Total Milk</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for record in records %}
+
+    <tr>
+
+        <td>{{ record.animal }}</td>
+
+        <td>{{ record.date }}</td>
+
+        <td>{{ record.morning_qty }}</td>
+
+        <td>{{ record.evening_qty }}</td>
+
+        <td>{{ record.total_qty }}</td>
+
+        <td>
+
+            <a href="{% url 'milk_update' record.id %}">
+                Edit
+            </a>
+
+            |
+
+            <a href="{% url 'milk_delete' record.id %}">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="6">
+            No milk records found.
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

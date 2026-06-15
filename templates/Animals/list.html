@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Animals</h1>
+
+<a href="{% url 'animal_create' %}">
+    Add Animal
+</a>
+
+<hr>
+
+<form method="GET">
+
+    <input
+        type="text"
+        name="q"
+        placeholder="Search Tag ID"
+        value="{{ request.GET.q }}"
+    >
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<br>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Tag ID</th>
+        <th>Breed</th>
+        <th>Type</th>
+        <th>Age</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for animal in animals %}
+
+    <tr>
+
+        <td>{{ animal.tag_id }}</td>
+
+        <td>{{ animal.breed_name }}</td>
+
+        <td>{{ animal.animal_type }}</td>
+
+        <td>{{ animal.age }}</td>
+
+        <td>{{ animal.get_status_display }}</td>
+
+        <td>
+
+            <a href="{% url 'animal_update' animal.id %}">
+                Edit
+            </a>
+
+            |
+
+            <a href="{% url 'animal_delete' animal.id %}">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="6">
+            No animals found.
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

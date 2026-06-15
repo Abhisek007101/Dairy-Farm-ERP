@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Delete Animal</h1>
+
+<p>
+    Are you sure you want to delete Animal
+    <strong>{{ animal.tag_id }}</strong> ?
+</p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <button type="submit">
+        Confirm Delete
+    </button>
+
+</form>
+
+<br>
+
+<a href="{% url 'animal_list' %}">
+    Cancel
+</a>
+
+{% endblock %}

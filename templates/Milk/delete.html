@@ -1,0 +1,18 @@
+<h1>Delete Milk Record</h1>
+
+<p>
+
+Are you sure you want to delete
+{{ milk }} ?
+
+</p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <button type="submit">
+        Delete
+    </button>
+
+</form>

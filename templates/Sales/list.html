@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Sales Records</h1>
+
+<a href="{% url 'sale_create' %}">
+    Add Sale
+</a>
+
+<hr>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Quantity Sold</th>
+        <th>Price Per Litre</th>
+        <th>Total Revenue</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for sale in sales %}
+
+    <tr>
+
+        <td>{{ sale.qty_sold }}</td>
+
+        <td>{{ sale.price }}</td>
+
+        <td>{{ sale.total_revenue}}</td>
+
+        <td>{{ sale.date }}</td>
+
+        <td>
+
+            <a href="{% url 'sale_update' sale.id %}">
+                Edit
+            </a>
+
+            |
+
+            <a href="{% url 'sale_delete' sale.id %}">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="5">
+            No sales found.
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

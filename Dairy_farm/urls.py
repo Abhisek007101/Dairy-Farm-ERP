@@ -16,10 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.shortcuts import redirect
+
+def home(request):
+    return redirect('/dashboard/')
+
 
 urlpatterns = [
+    path("",home),
     path('admin/', admin.site.urls),
-    path("", include("dashboard.urls")),
+    path("dashboard/", include("dashboard.urls")),
     path("animals/", include("Animals.urls")),
     path("milk/",include("Milk.urls")),
     path("sales/",include("Sales.urls")),

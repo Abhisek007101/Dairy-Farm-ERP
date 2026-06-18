@@ -9,12 +9,7 @@ from django.contrib.auth.decorators import login_required
 def milk_list(request):
 
     records = Milk.objects.all()
-
-    return render(
-        request,
-        "milk/list.html",
-        {"records": records}
-    )
+    return render(request,"milk/list.html",{"records": records})
 
 
 def milk_create(request):

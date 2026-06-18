@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 def milk_list(request):
 
     records = Milk.objects.all()
-    return render(request,"milk/list.html",{"records": records})
+    return render(request,"Milk/list.html",{"records": records})
 
 
 def milk_create(request):
@@ -22,7 +22,7 @@ def milk_create(request):
 
     return render(
         request,
-        "milk/create.html",
+        "Milk/create.html",
         {"form": form}
     )
 
@@ -42,7 +42,7 @@ def milk_update(request, pk):
 
     return render(
         request,
-        "milk/update.html",
+        "Milk/update.html",
         {"form": form}
     )
 
@@ -57,6 +57,6 @@ def milk_delete(request, pk):
 
     return render(
         request,
-        "milk/delete.html",
+        "Milk/delete.html",
         {"milk": milk}
     )

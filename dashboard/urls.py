@@ -3,6 +3,6 @@ from .views import dashboard
 from . import views
 
 urlpatterns = [
-    path("dashboard/", dashboard, name="dashboard"),
-    path('dashboard/pdf/', views.download_report, name='pdf_report'),
+    path('', dashboard, name="dashboard"),
+    path('pdf/', views.download_report, name='pdf_report'),
 ]
